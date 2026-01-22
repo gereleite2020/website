@@ -4,130 +4,232 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GereLeite – Controle Financeiro para Produtores de Leite</title>
-  <meta name="description" content="GereLeite é um app simples de controle financeiro para produtores de leite. Saiba quanto ganha por litro, controle despesas e aumente seu lucro." />
+  <meta name="description" content="GereLeite é um app moderno de controle financeiro para produtores de leite. Saiba quanto ganha por litro, controle custos e aumente seu lucro." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #1b5e20;
+      --secondary: #2e7d32;
+      --accent: #25d366;
+      --bg: #f4f6f8;
+      --dark: #1f2937;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f6f7f8;
-      color: #333;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
     }
+
     header {
-      background: linear-gradient(135deg, #1b5e20, #2e7d32);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: #fff;
-      padding: 60px 20px;
-      text-align: center;
+      padding: 90px 20px;
     }
-    header h1 {
-      font-size: 2.4rem;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
-    .btn {
-      display: inline-block;
-      background: #25d366;
-      color: #fff;
-      padding: 15px 28px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: bold;
-    }
-    section {
-      padding: 50px 20px;
-      max-width: 1000px;
+
+    .container {
+      max-width: 1100px;
       margin: auto;
     }
-    h2 {
-      text-align: center;
-      color: #1b5e20;
-      margin-bottom: 40px;
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
     }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 30px;
+      opacity: 0.95;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 16px 34px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .phone-mockup {
+      background: #fff;
+      border-radius: 30px;
+      height: 420px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+    }
+
+    section {
+      padding: 90px 20px;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 60px;
+      color: var(--primary);
+    }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 35px;
     }
+
     .card {
       background: #fff;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 35px 30px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+    }
+
     .card h3 {
       margin-top: 0;
-      color: #2e7d32;
+      margin-bottom: 12px;
+      color: var(--secondary);
+      font-size: 1.25rem;
     }
+
+    .card p {
+      font-size: 1rem;
+      color: #4b5563;
+    }
+
     .cta {
-      background: #2e7d32;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
       color: #fff;
       text-align: center;
-      padding: 60px 20px;
+      padding: 100px 20px;
     }
+
+    .cta h2 {
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      font-size: 1.15rem;
+      margin-bottom: 35px;
+      opacity: 0.95;
+    }
+
     footer {
-      background: #222;
-      color: #ccc;
+      background: #111827;
+      color: #9ca3af;
       text-align: center;
-      padding: 20px;
+      padding: 30px 20px;
       font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>GereLeite</h1>
-    <p>Controle financeiro simples e prático para produtores de leite</p>
-    <a class="btn" href="https://wa.me/55SEUNUMEROAQUI" target="_blank">📲 Quero conhecer o app</a>
+    <div class="container hero">
+      <div>
+        <img src="logo.png" alt="Logo GereLeite" style="max-width:260px; margin-bottom:20px;" />
+        <p>Controle financeiro moderno e simples para produtores de leite que querem lucrar mais.</p>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+          <a class="btn" href="https://play.google.com/store/apps/details?id=SEU.PACKAGE.AQUI" target="_blank">📥 Baixar na Play Store</a>
+          <a class="btn" href="https://wa.me/55SEUNUMEROAQUI" target="_blank">📲 Falar no WhatsApp</a>
+        </div>
+      </div>
+      <div class="phone-mockup"></div>
+    </div>
   </header>
 
   <section>
-    <h2>O problema de muitos produtores</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>❌ Falta de controle</h3>
-        <p>Muitos gastos ficam sem registro e o produtor não sabe o custo real da produção.</p>
-      </div>
-      <div class="card">
-        <h3>❌ Lucro desconhecido</h3>
-        <p>No fim do mês, não fica claro se realmente houve lucro por litro de leite.</p>
-      </div>
-      <div class="card">
-        <h3>❌ Anotações manuais</h3>
-        <p>Papel, caderno ou memória acabam gerando erros e esquecimentos.</p>
+    <div class="container">
+      <h2>Os principais desafios do produtor</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Falta de controle financeiro</h3>
+          <p>Gastos do dia a dia acabam passando despercebidos e o custo real da produção não fica claro.</p>
+        </div>
+        <div class="card">
+          <h3>Lucro por litro desconhecido</h3>
+          <p>Sem saber exatamente quanto sobra por litro, fica difícil tomar decisões certas.</p>
+        </div>
+        <div class="card">
+          <h3>Anotações manuais</h3>
+          <p>Papel, caderno ou memória geram erros e dificultam a organização financeira.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>A solução: GereLeite</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>📊 Controle de despesas</h3>
-        <p>Registre ração, medicamentos, energia, funcionários e outros custos da fazenda.</p>
-      </div>
-      <div class="card">
-        <h3>🥛 Produção diária</h3>
-        <p>Acompanhe a produção de leite e saiba exatamente quanto rende cada litro.</p>
-      </div>
-      <div class="card">
-        <h3>📈 Relatórios simples</h3>
-        <p>Veja resultados claros no celular, sem complicação e sem planilhas difíceis.</p>
+    <div class="container">
+      <h2>Como o GereLeite ajuda você</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Controle de despesas</h3>
+          <p>Registre ração, medicamentos, energia, funcionários e todos os custos da fazenda.</p>
+        </div>
+        <div class="card">
+          <h3>Produção de leite</h3>
+          <p>Acompanhe a produção diária e saiba exatamente quanto rende cada litro.</p>
+        </div>
+        <div class="card">
+          <h3>Relatórios claros</h3>
+          <p>Visualize resultados simples e objetivos direto no celular, sem planilhas complicadas.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="cta">
-    <h2>Quer testar o GereLeite?</h2>
-    <p>Fale comigo no WhatsApp e veja como o app pode te ajudar a lucrar mais.</p>
-    <a class="btn" href="https://wa.me/55SEUNUMEROAQUI" target="_blank">📲 Falar no WhatsApp</a>
+    <div class="container">
+      <h2>Pronto para organizar sua produção?</h2>
+      <p>Fale comigo agora no WhatsApp e veja como o GereLeite pode transformar seu controle financeiro.</p>
+      <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+        <a class="btn" href="https://play.google.com/store/apps/details?id=SEU.PACKAGE.AQUI" target="_blank">📥 Baixar na Play Store</a>
+        <a class="btn" href="https://wa.me/55SEUNUMEROAQUI" target="_blank">📲 Falar no WhatsApp</a>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>© 2026 – GereLeite | App de Controle Financeiro para Produtores de Leite</p>
+    <p>© 2026 – GereLeite | Controle Financeiro para Produtores de Leite</p>
   </footer>
 
 </body>
